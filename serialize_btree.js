@@ -9,45 +9,46 @@ class Node {
 const root = new Node(1);
 root.left = new Node(2);
 root.right = new Node(3);
-root.right.left = new Node(4);
-root.right.right = new Node(5);
-// root.right.left = new Node(6);
-// root.right.right = new Node(7);
+root.left.left = new Node(4);
+root.left.right = new Node(5);
+root.right.left = new Node(6);
+root.right.right = new Node(7);
 
-function serialize() {
+function serialise() {
     let string = '';
 
-    function encode(node) {
-        if (!node) {
-            string += 'e ';
+    function encode(root) {
+        if (root === null) {
+            string += 'null,';
         } else {
-            string += node.data + ' ';
-            encode(node.left);
-            encode(node.right);
+            string += root.data + ',';
+            encode(root.left);
+            encode(root.right);
         }
     }
 
     encode(root);
+
     return string;
 }
 
-function deserialize(data) {
-    let nodes = data.split(' ');
+function deserialise(str) {
+    const nodes = str.split(',');
     function decode() {
-        let val = nodes.shift();
-        if (val === 'e') {
+        const node = nodes.shift();
+        if (node === 'null') {
             return null;
+        } else {
+            const data = new Node(Number(node));
+            data.left = decode();
+            data.right = decode();
+            return data;
         }
-
-        let node = new Node(Number(val));
-        node.left = decode();
-        node.right = decode();
-        return node;
     }
 
     return decode();
 }
-
-const serialized = serialize();
-console.log(serialized);
-console.log(deserialize(serialized));
+const string = serialise();
+console.log(string);
+const tree = deserialise(string);
+console.log(tree);
