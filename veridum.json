@@ -1,0 +1,54 @@
+https://<base_domain>/websec/rest/enterprise/AuthenticationRequest
+
+{
+    "deviceId": "string",
+    "ts": "string",
+    "val1": "string",
+    "val2": "string",
+    "memberExternalId": "string",
+    "authenticationMode": "string",
+    "profileExternalId": "string",
+    "sessionType": "string",
+    "extraValues": "string",
+    "transactionText": "string",
+    "notifyClient": true,
+    "context": {
+        "localDateTime": "2021-06-08T09:55:09.309Z",
+        "timezoneOffset": 0,
+        "ip": "string",
+        "location": {
+            "ip": "string",
+            "countryCode": "string",
+            "source": "IP",
+            "countryName": "string",
+            "regionCode": "string",
+            "regionName": "string",
+            "city": "string",
+            "district": "string",
+            "street": "string",
+            "streetNumber": "string",
+            "postalCode": "string",
+            "coordinates": {
+                "latitude": 0,
+                "longitude": 0
+            },
+            "accuracy": 0,
+            "errorCode": 0,
+            "initialized": true
+        },
+        "userAgentRaw": "string",
+        "userAgentName": "string",
+        "userAgentVersion": "string",
+        "userAgentDevice": "string",
+        "language": "string",
+        "internetConnectionType": "string",
+        "deviceMake": "string",
+        "deviceModel": "string",
+        "osName": "string",
+        "osVersion": "string",
+        "isRooted": true,
+        "hasHardwareCryptoSupport": true,
+        "serviceIdentifier": "string",
+        "rooted": true
+    }
+}
